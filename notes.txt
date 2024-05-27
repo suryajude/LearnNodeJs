@@ -1,0 +1,54 @@
+command to execute the package : npm start or npm run start
+we can define start or whatever we commadn we give inside of the scripts
+
+
+to create a node project => npm init 
+the package name and other details will come later.
+ex:
+  "scripts": {
+    "start": "node src/app.js"
+  },
+
+
+  npm install i => to install the node modules and the package-lock.json
+
+to use the import we need to add the "type" : "module" in the package.json
+
+nodemon = > install it by the npm install nodemon , this command is to install the nodemon 
+and this nodemon is very useful to see the changes and it will cause the server to refresh (
+  use: 
+  npx nodemon src/app.js
+  and change the command in the package.json from node src/app.js to npx nodemon src/app.js
+)
+
+
+
+git remote add origin https://github.com/suryajude/LearnNodeJs.git
+git branch -M main
+git push -u origin main
+
+
+
+
+
+example:
+// to create a server 
+// we neet http request , as a requirement
+const http = require('node:http');
+
+const hostname = '127.0.0.1';
+const port = 5000;
+
+const server = http.createServer((req,res)=> {
+    // define the res code
+    res.statusCode = 200;
+    res.setHeader('content-Type','text/plain');
+    res.setHeader('Set-Cookie',['type=ninja','language=java script']);
+    console.log('the output data is ',res.getHeader('Set-Cookie'))
+    res.end('Helo world');
+    
+});
+
+server.listen(port, hostname, ()=>{
+    console.log(`Don\'t worry server is running.....${port} ${hostname}`);
+});
